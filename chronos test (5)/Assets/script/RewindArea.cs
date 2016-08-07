@@ -20,7 +20,7 @@ namespace Chronos.Example{
 		void OnTriggerStay(Collider coll)
 		{
             Debug.Log(coll.gameObject.name);
-            if (rewindSw == true && coll.gameObject.tag == "Object") {
+            if (rewindSw == true && coll.gameObject.tag == "Enemy") {
 				coll.gameObject.GetComponent<TestEnemy> ().StartRewind ();
                 
             }
