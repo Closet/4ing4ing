@@ -36,7 +36,7 @@ namespace Chronos.Example{
 		}
 		
 		void Update () {
-            
+			
 			if (rewindCount >= 0) {
 				++rewindCount;
 				if (rewindCount == 120) {
@@ -48,11 +48,11 @@ namespace Chronos.Example{
             {
                 count ++;
             }
-            if(flag==1)
+			if(flag==1 && Player1.transform.tag=="Player")
             {
                 nav.destination = Player1.transform.position;
             }
-            else if(flag==2)
+			else if(flag==2 && Player2.transform.tag=="Player2")
             {
                 nav.destination = Player2.transform.position;
             }
@@ -64,6 +64,7 @@ namespace Chronos.Example{
 				RandomDest ();
 			} 
 		}
+
 		
 		void RandomDest()
 		{

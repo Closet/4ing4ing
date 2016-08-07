@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -157,6 +151,9 @@
     <Compile Include="Assets\Chronos\Source\Timelines\WindZoneTimeline.cs" />
     <Compile Include="Assets\Chronos\Source\Utilities\Severity.cs" />
     <Compile Include="Assets\Chronos\Source\Utilities\Singleton.cs" />
+    <Compile Include="Assets\boxAction.cs" />
+    <Compile Include="Assets\hideBoxScript.cs" />
+    <Compile Include="Assets\outBoxScript.cs" />
     <Compile Include="Assets\script\Player1.cs" />
     <Compile Include="Assets\script\Player2.cs" />
     <Compile Include="Assets\script\RewindArea.cs" />
