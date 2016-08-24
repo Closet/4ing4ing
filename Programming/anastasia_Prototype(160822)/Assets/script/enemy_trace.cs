@@ -39,15 +39,21 @@ namespace Chronos.Example
                 {
                     if (!agent.Raycast(Player1.transform.position,out hit))
                     {
-                        
-                        transform.parent.gameObject.GetComponent<TestEnemy>().flag = 1;
-                        transform.parent.gameObject.GetComponent<TestEnemy>().count = 0;
-                        transform.parent.gameObject.GetComponent<TestEnemy>().Mode = 1;
-                        transform.parent.gameObject.GetComponent<TestEnemy>().finalvec = transform.position;
-                        if(transform.parent.gameObject.GetComponent<TestEnemy>().recon > 0)
+                        if(Physics.Raycast(transform.position,col.transform.position-transform.position,out Hit, 1 << 8))
                         {
-                            transform.parent.gameObject.GetComponent<TestEnemy>().realpo = transform.position;
+                            if (Hit.collider.tag == "Player")
+                            {
+                                transform.parent.gameObject.GetComponent<TestEnemy>().flag = 1;
+                                transform.parent.gameObject.GetComponent<TestEnemy>().count = 0;
+                                transform.parent.gameObject.GetComponent<TestEnemy>().Mode = 1;
+                                transform.parent.gameObject.GetComponent<TestEnemy>().finalvec = transform.position;
+                                if (transform.parent.gameObject.GetComponent<TestEnemy>().recon > 0)
+                                {
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().realpo = transform.position;
+                                }
+                            }
                         }
+                        
                     }
                 }
                 if (col.gameObject.tag == "Player2")
@@ -57,13 +63,20 @@ namespace Chronos.Example
                     //  Debug.DrawRay(Hit.origin, Hit.direction * 10f, Color.red, 5f);
                     if (!agent.Raycast(Player2.transform.position, out hit))
                     {
-                        transform.parent.gameObject.GetComponent<TestEnemy>().flag = 2;
-                        transform.parent.gameObject.GetComponent<TestEnemy>().count = 0;
-                        transform.parent.gameObject.GetComponent<TestEnemy>().Mode = 1;
-                        transform.parent.gameObject.GetComponent<TestEnemy>().finalvec = transform.position;
-                        if (transform.parent.gameObject.GetComponent<TestEnemy>().recon > 0)
+                        if (Physics.Raycast(transform.position, col.transform.position - transform.position, out Hit, 1 << 8))
                         {
-                            transform.parent.gameObject.GetComponent<TestEnemy>().realpo = transform.position;
+                            if (Hit.collider.tag == "Player2")
+                            {
+
+                                transform.parent.gameObject.GetComponent<TestEnemy>().flag = 2;
+                                transform.parent.gameObject.GetComponent<TestEnemy>().count = 0;
+                                transform.parent.gameObject.GetComponent<TestEnemy>().Mode = 1;
+                                transform.parent.gameObject.GetComponent<TestEnemy>().finalvec = transform.position;
+                                if (transform.parent.gameObject.GetComponent<TestEnemy>().recon > 0)
+                                {
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().realpo = transform.position;
+                                }
+                            }
                         }
                     }
                 }
@@ -74,13 +87,20 @@ namespace Chronos.Example
                     
                     if (!agent.Raycast(anata.transform.position, out hit))
                     {
-                        transform.parent.gameObject.GetComponent<TestEnemy>().flag = 3;
-                        transform.parent.gameObject.GetComponent<TestEnemy>().count = 0;
-                        transform.parent.gameObject.GetComponent<TestEnemy>().Mode = 1;
-                        transform.parent.gameObject.GetComponent<TestEnemy>().finalvec = transform.position;
-                        if (transform.parent.gameObject.GetComponent<TestEnemy>().recon > 0)
+                        if (Physics.Raycast(transform.position, col.transform.position - transform.position, out Hit, 1 << 8))
                         {
-                            transform.parent.gameObject.GetComponent<TestEnemy>().realpo = transform.position;
+                            if (Hit.collider.tag == "anata")
+                            
+                            {
+                                transform.parent.gameObject.GetComponent<TestEnemy>().flag = 3;
+                                transform.parent.gameObject.GetComponent<TestEnemy>().count = 0;
+                                transform.parent.gameObject.GetComponent<TestEnemy>().Mode = 1;
+                                transform.parent.gameObject.GetComponent<TestEnemy>().finalvec = transform.position;
+                                if (transform.parent.gameObject.GetComponent<TestEnemy>().recon > 0)
+                                {
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().realpo = transform.position;
+                                }
+                            }
                         }
                     }
                 }/*

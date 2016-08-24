@@ -39,6 +39,7 @@ namespace Chronos.Example
         public float skill_gaze1 = 100;
         public float skill_gaze2 = 100;
         public bool skill2_flag = false;
+        private bool allmove = false;
         void Start()
 		{
             autocome = false;
@@ -87,7 +88,7 @@ namespace Chronos.Example
                     item_flag = true;
                     on.SetActive(false);
                     off.SetActive(true);
-                    
+
                 }
                 else if (item_flag == true)
                 {
@@ -95,6 +96,19 @@ namespace Chronos.Example
                     on.SetActive(true);
                     off.SetActive(false);
                 }
+            }
+            if (Input.GetKeyDown(KeyCode.BackQuote))
+            {
+                Debug.Log("zbzb");
+                if (allmove == false)
+                {
+                    allmove = true;
+                }
+                else if (allmove == true)
+                {
+                    allmove = false;
+                }
+                
             }
             if (ratio1 < 1)
             {
@@ -190,7 +204,7 @@ namespace Chronos.Example
 
             //
             //if (clock.localTimeScale > 0) {
-            if (flag==false)
+            if (flag==false||allmove==true)
             {                               
                 if (Input.GetKey(KeyCode.RightArrow))
                 {
@@ -244,7 +258,7 @@ namespace Chronos.Example
                     }
                 }
             }
-            else if( flag == true)
+            if( flag == true || allmove == true)
             {
                 if (rewindSw == true)
                 {

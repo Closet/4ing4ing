@@ -24,7 +24,7 @@ namespace Chronos.Example
                 {
                     if (col.gameObject.tag == "path")
                     {
-                        Debug.Log("asdasd");
+                      
                         // transform.parent.gameObject.GetComponent<TestEnemy>().path++;
                         //  Debug.Log(transform.parent.gameObject.GetComponent<TestEnemy>().path);
                         for (int i = 0; i < transform.parent.gameObject.GetComponent<TestEnemy>().reconnum; i++)
@@ -33,7 +33,7 @@ namespace Chronos.Example
                             if (col.gameObject.GetInstanceID() == transform.parent.gameObject.GetComponent<TestEnemy>().reconpath[i].GetInstanceID())
                             {
                                 transform.parent.gameObject.GetComponent<TestEnemy>().reconcount = i + 1;
-                                Debug.Log(col.gameObject.GetInstanceID());
+                                
 
 
                             }
@@ -44,7 +44,7 @@ namespace Chronos.Example
                 {
                     if (col.gameObject.tag == "path")
                     {
-                        Debug.Log("asdasd");
+                        
                         // transform.parent.gameObject.GetComponent<TestEnemy>().path++;
                         //  Debug.Log(transform.parent.gameObject.GetComponent<TestEnemy>().path);
                         for (int i = 0; i < transform.parent.gameObject.GetComponent<TestEnemy>().reconnum; i++)
