@@ -20,7 +20,7 @@ namespace Chronos.Example
         {
             agent = transform.parent.gameObject.GetComponent<NavMeshAgent>();
             layerMask = (-1) - ((1 << LayerMask.NameToLayer("Useray")));
-            Debug.Log(layerMask);
+            
         }
 
         // Update is called once per frame

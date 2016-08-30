@@ -7,7 +7,7 @@ public class targetaddress : MonoBehaviour {
    
     // Use this for initialization
     void Start () {
-        Debug.Log(targetsize);
+     
     }
 	
 	// Update is called once per frame

@@ -263,6 +263,20 @@ namespace Chronos.Example
                         Player1.transform.eulerAngles = new Vector3(0, 180, 0);
                     }
                 }
+                if (Input.GetKeyDown("z"))
+                {
+                    if (closetflag == true && hideflag == false)
+                    {
+
+                        Player1.transform.localScale = new Vector3(0, 0, 0);
+                        hideflag = true;
+                    }
+                    else if (hideflag == true)
+                    {
+                        hideflag = false;
+                        Player1.transform.localScale = new Vector3(1.8f, 1.8f, 1.8f);
+                    }
+                }
                 //}
                 if (Input.GetKeyDown(KeyCode.S)) //stop
                 {
@@ -373,7 +387,20 @@ namespace Chronos.Example
                         Player2.transform.eulerAngles = new Vector3(0, 180, 0);
                     }
                 }
-              
+                if (Input.GetKeyDown("z"))
+                {
+                    if (closetflag == true && hideflag == false)
+                    {
+
+                        Player2.transform.localScale = new Vector3(0, 0, 0);
+                        hideflag = true;
+                    }
+                    else if (hideflag == true)
+                    {
+                        hideflag = false;
+                        Player2.transform.localScale = new Vector3(1.8f, 1.8f, 1.8f);
+                    }
+                }
             }
             if (qcount > 0)
             {
@@ -445,19 +472,7 @@ namespace Chronos.Example
                 Debug.Log("asadasd");
                 qPress = 0;
             }
-            if (Input.GetKeyDown("z"))
-            {
-                if (closetflag == true&&hideflag==false)
-                {
-                    transform.localScale = new Vector3(0, 0, 0);
-                    hideflag = true;
-                }
-                else if (hideflag == true)
-                {
-                    hideflag = false;
-                    transform.localScale = new Vector3(1.8f, 1.8f, 1.8f);
-                }
-            }
+            
             
         }
         public void StartRewind()

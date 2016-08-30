@@ -1481,7 +1481,7 @@ GameObject:
   - 135: {fileID: 169798031}
   m_Layer: 8
   m_Name: New Sprite (1)
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2392,7 +2392,7 @@ GameObject:
   - 135: {fileID: 267811098}
   m_Layer: 8
   m_Name: New Sprite (1)
-  m_TagString: Player2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3326,7 +3326,7 @@ Transform:
   m_Children:
   - {fileID: 1281777786}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!1 &344511679
 GameObject:
   m_ObjectHideFlags: 0
@@ -5072,7 +5072,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 543046678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.9, y: 0.9, z: -20.06}
+  m_LocalPosition: {x: -15.9, y: 0.9, z: -24.97}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_Children:
   - {fileID: 451072431}
@@ -5491,7 +5491,7 @@ GameObject:
   - 114: {fileID: 594091598}
   m_Layer: 8
   m_Name: New Sprite
-  m_TagString: Player2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9664,7 +9664,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1146311672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.5, y: 0.9, z: -21.16}
+  m_LocalPosition: {x: -21.5, y: 0.9, z: -0.94}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_Children:
   - {fileID: 1612855292}
@@ -12598,7 +12598,7 @@ GameObject:
   - 4: {fileID: 1612855292}
   m_Layer: 8
   m_Name: New Sprite
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15892,7 +15892,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2124023007}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.9, y: 0.9, z: -0.5}
+  m_LocalPosition: {x: -18.37, y: 0.9, z: -26.46}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_Children:
   - {fileID: 594091596}
