@@ -10,7 +10,7 @@ namespace Chronos.Example
         public GameObject anatasha;
         
        
-            void OnTriggerEnter(Collider col)
+        void OnTriggerEnter(Collider col)
         {
             if (anatasha.GetComponent<anatest>().autocome == false)
             {
@@ -20,12 +20,19 @@ namespace Chronos.Example
                     anatasha.GetComponent<anatest>().MoveOn = false;
                     anatasha.GetComponent<anatest>().whoAreYou = 0;
                     anatasha.GetComponent<anatest>().runflag = false;
+                    anatasha.GetComponent<anatest>().nav.destination = this.transform.position;
                 }
                 else if (col.tag == "Player2")
                 {
                     anatasha.GetComponent<anatest>().MoveOn = false;
                     anatasha.GetComponent<anatest>().whoAreYou = 0;
                     anatasha.GetComponent<anatest>().runflag = false;
+                    anatasha.GetComponent<anatest>().nav.destination = this.transform.position;
+                }
+                if(col.tag == "closet")
+                {
+                    Debug.Log("hahaha");
+                    anatasha.transform.localScale = new Vector3(0, 0, 0);
                 }
             }
         }

@@ -14,10 +14,13 @@ namespace Chronos.Example
         NavMeshHit hit2;
         private NavMeshAgent agent;
         public GameObject target;
+        int layerMask;
         // Use this for initialization
         void Start()
         {
             agent = transform.parent.gameObject.GetComponent<NavMeshAgent>();
+            layerMask = (-1) - ((1 << LayerMask.NameToLayer("Useray")));
+            Debug.Log(layerMask);
         }
 
         // Update is called once per frame
@@ -33,23 +36,29 @@ namespace Chronos.Example
         void OnTriggerStay(Collider col)
         {
 
-            if (transform.parent.gameObject.GetComponent<TestEnemy>().Mode == 0|| transform.parent.gameObject.GetComponent<TestEnemy>().Mode == 1|| transform.parent.gameObject.GetComponent<TestEnemy>().Mode == 2)
+            if ((transform.parent.gameObject.GetComponent<TestEnemy>().Mode == 0|| transform.parent.gameObject.GetComponent<TestEnemy>().Mode == 1|| transform.parent.gameObject.GetComponent<TestEnemy>().Mode == 2)&& transform.parent.gameObject.GetComponent<TestEnemy>().SW==0)
             {
                 if (col.gameObject.tag == "Player")
                 {
                     if (!agent.Raycast(Player1.transform.position,out hit))
                     {
-                        if(Physics.Raycast(transform.position,col.transform.position-transform.position,out Hit, 1 << 8))
+                        if(Physics.Raycast(transform.position,col.transform.position-transform.position,out Hit, Mathf.Infinity, 1<<8))
                         {
-                            if (Hit.collider.tag == "Player")
+                            Vector3 v = (col.transform.position - transform.position)-transform.forward ;
+                            float rad =Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
+                            if (rad < 90 && rad > -90)
                             {
-                                transform.parent.gameObject.GetComponent<TestEnemy>().flag = 1;
-                                transform.parent.gameObject.GetComponent<TestEnemy>().count = 0;
-                                transform.parent.gameObject.GetComponent<TestEnemy>().Mode = 1;
-                                transform.parent.gameObject.GetComponent<TestEnemy>().finalvec = transform.position;
-                                if (transform.parent.gameObject.GetComponent<TestEnemy>().recon > 0)
+                               // Debug.Log(rad);
+                                if (Hit.collider.tag == "Player")
                                 {
-                                    transform.parent.gameObject.GetComponent<TestEnemy>().realpo = transform.position;
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().flag = 1;
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().count = 0;
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().Mode = 1;
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().finalvec = transform.position;
+                                    if (transform.parent.gameObject.GetComponent<TestEnemy>().recon > 0)
+                                    {
+                                        transform.parent.gameObject.GetComponent<TestEnemy>().realpo = transform.position;
+                                    }
                                 }
                             }
                         }
@@ -63,18 +72,24 @@ namespace Chronos.Example
                     //  Debug.DrawRay(Hit.origin, Hit.direction * 10f, Color.red, 5f);
                     if (!agent.Raycast(Player2.transform.position, out hit))
                     {
-                        if (Physics.Raycast(transform.position, col.transform.position - transform.position, out Hit, 1 << 8))
+                        if (Physics.Raycast(transform.position, col.transform.position - transform.position, out Hit, Mathf.Infinity, 1 << 8))
                         {
-                            if (Hit.collider.tag == "Player2")
+                            Vector3 v = (col.transform.position - transform.position) - transform.forward;
+                            float rad = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
+                            if (rad < 90 && rad > -90)
                             {
-
-                                transform.parent.gameObject.GetComponent<TestEnemy>().flag = 2;
-                                transform.parent.gameObject.GetComponent<TestEnemy>().count = 0;
-                                transform.parent.gameObject.GetComponent<TestEnemy>().Mode = 1;
-                                transform.parent.gameObject.GetComponent<TestEnemy>().finalvec = transform.position;
-                                if (transform.parent.gameObject.GetComponent<TestEnemy>().recon > 0)
+                             //   Debug.Log(rad);
+                                if (Hit.collider.tag == "Player2")
                                 {
-                                    transform.parent.gameObject.GetComponent<TestEnemy>().realpo = transform.position;
+
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().flag = 2;
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().count = 0;
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().Mode = 1;
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().finalvec = transform.position;
+                                    if (transform.parent.gameObject.GetComponent<TestEnemy>().recon > 0)
+                                    {
+                                        transform.parent.gameObject.GetComponent<TestEnemy>().realpo = transform.position;
+                                    }
                                 }
                             }
                         }
@@ -83,22 +98,28 @@ namespace Chronos.Example
                 if (col.gameObject.tag == "anata")
                 {
                     
-                        Physics.Raycast(transform.position, (anata.transform.position - transform.position) / 10, out Hit, 1 << 8);
+                        Physics.Raycast(transform.position, (anata.transform.position - transform.position) / 10, out Hit, Mathf.Infinity, layerMask);
                     
                     if (!agent.Raycast(anata.transform.position, out hit))
                     {
-                        if (Physics.Raycast(transform.position, col.transform.position - transform.position, out Hit, 1 << 8))
+                        if (Physics.Raycast(transform.position, col.transform.position - transform.position, out Hit, Mathf.Infinity, 1 << 8))
                         {
-                            if (Hit.collider.tag == "anata")
-                            
+                            Vector3 v = (col.transform.position - transform.position) - transform.forward;
+                            float rad = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
+                            if (rad < 90 && rad > -90)
                             {
-                                transform.parent.gameObject.GetComponent<TestEnemy>().flag = 3;
-                                transform.parent.gameObject.GetComponent<TestEnemy>().count = 0;
-                                transform.parent.gameObject.GetComponent<TestEnemy>().Mode = 1;
-                                transform.parent.gameObject.GetComponent<TestEnemy>().finalvec = transform.position;
-                                if (transform.parent.gameObject.GetComponent<TestEnemy>().recon > 0)
+                             //   Debug.Log(rad);
+                                if (Hit.collider.tag == "anata")
+
                                 {
-                                    transform.parent.gameObject.GetComponent<TestEnemy>().realpo = transform.position;
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().flag = 3;
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().count = 0;
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().Mode = 1;
+                                    transform.parent.gameObject.GetComponent<TestEnemy>().finalvec = transform.position;
+                                    if (transform.parent.gameObject.GetComponent<TestEnemy>().recon > 0)
+                                    {
+                                        transform.parent.gameObject.GetComponent<TestEnemy>().realpo = transform.position;
+                                    }
                                 }
                             }
                         }

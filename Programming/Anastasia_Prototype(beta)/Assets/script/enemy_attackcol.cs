@@ -18,7 +18,7 @@ namespace Chronos.Example
         }
         void OnTriggerStay(Collider col)
         {
-            if (transform.parent.gameObject.GetComponent<TestEnemy>().Mode == 1)
+            if (transform.parent.gameObject.GetComponent<TestEnemy>().Mode == 1&& transform.parent.gameObject.GetComponent<TestEnemy>().SW==0)
             {
                 if (col.tag == "Player" || col.tag == "Player2" || col.tag == "anata")
                 {

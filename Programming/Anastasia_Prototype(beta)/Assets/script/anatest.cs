@@ -34,7 +34,8 @@ namespace Chronos.Example
         private Timeline timeline;
         public GameObject timekeeper;
         public bool runflag2 = false;
-       
+        public bool closetflag = false;
+        public Vector3 closetvec;
         // Use this for initialization
         void Start()
         {
@@ -73,8 +74,12 @@ namespace Chronos.Example
                 whoAreYou = 0;
                 nav.destination = transform.position;
             }
-
-            if(MoveOn)
+            if(closetflag==true)
+            {
+                nav.destination = closetvec;
+                Debug.Log("haha");
+            }
+            else if(MoveOn)
             {
                
                 if(whoAreYou==1)
@@ -98,7 +103,7 @@ namespace Chronos.Example
                 else if (runflag == false)
                 {
                     nav.speed = 5;
-                    CC.Move(new Vector3(0, -0.5f, 0));
+
                 }
 
                 else if (runflag == true)

@@ -32,6 +32,8 @@ namespace Chronos.Example
         public int reconnum;
         public int dir = -1;
         public int random = 0;
+        public int SW = 0;
+        private int SWcount = 0;
         void Start()
         {
             if (recon == 1|| recon == 2)
@@ -53,17 +55,18 @@ namespace Chronos.Example
             }
 
             timeline = GetComponent<Timeline>();
-            Debug.Log(path2.Length);
+
             for (int i = 0; i < 60; i++)
             {
                 path2[i] = 0;
             }
             dir = -1;
+            SW = 0;
         }
 
         void Update()
         {
-
+            
             if (rewindCount >= 0)
             {
                 ++rewindCount;
@@ -73,81 +76,93 @@ namespace Chronos.Example
                     rewindCount = -1;
                 }
             }
-            if (Mode == 1)//추격
+            if (SW > 0)
             {
-                if (flag > 0)
+                SWcount++;
+                if(SWcount ==300)
                 {
-                    count++;
+                    SW = 0;
+                    SWcount = 0;
                 }
-                if (count == 1)
+            }
+            else
+            {
+                if (Mode == 1)//추격
                 {
-
-                    for (int i = 0; i < target.GetComponent<targetaddress>().targetsize; i++)
+                    if (flag > 0)
                     {
-                        path2[i] = 0;
+                        count++;
+                    }
+                    if (count == 1)
+                    {
+
+                        for (int i = 0; i < target.GetComponent<targetaddress>().targetsize; i++)
+                        {
+                            path2[i] = 0;
+                        }
+                    }
+                    if (flag == 1)
+                    {
+                        nav.destination = Player1.transform.position;
+                    }
+                    else if (flag == 2)
+                    {
+                        nav.destination = Player2.transform.position;
+                    }
+                    else if (flag == 3)
+                    {
+                        nav.destination = Ana.transform.position;
+
+                    }
+                    if (count == 60 * 3)
+                    {
+                        flag = 0;
+                        count = 0;
+                        Mode = 2;
                     }
                 }
-                if (flag == 1)
+                else if (Mode == 2)//수색
                 {
-                    nav.destination = Player1.transform.position;
+                    nav.destination = finalvec;
+                    count++;
+                    if (count > 60)
+                    {
+                        findpath();
+                    }
+                    if (count == 60 * 10)
+                    {
+                        Mode = 3;
+                    }
                 }
-                else if (flag == 2)
-                {
-                    nav.destination = Player2.transform.position;
-                }
-                else if (flag == 3)
-                {
-                    nav.destination = Ana.transform.position;
 
-                }
-                if (count == 60 * 3)
-                {
-                    flag = 0;
-                    count = 0;
-                    Mode = 2;
-                }
-            }
-            else if (Mode == 2)//수색
-            {
-                nav.destination = finalvec;
-                count++;
-                if (count > 60)
-                {
-                    findpath();
-                }
-                if (count == 60 * 10)
-                {
-                    Mode = 3;
-                }
-            }
-
-            else if (Mode == 3)//돌아오기
-            {
-                RandomDest();
-            }
-            else if (Mode == 4)//공격 
-            {
-                count++;
-                nav.destination = this.transform.position;
-                if (count == 60)
-                {
-                    Mode = 1;
-                    count = 2;
-                }
-            }
-            else if (Mode == 0)//대기 and 돌아다니기 
-            {
-                if (recon == 0)
+                else if (Mode == 3)//돌아오기
                 {
                     RandomDest();
                 }
-                else if (recon == 1)
+                else if (Mode == 4)//공격 
                 {
-                    reconDest();
+                    count++;
+                    nav.destination = this.transform.position;
+                    if (count == 60)
+                    {
+                        Mode = 1;
+                        count = 2;
+                    }
                 }
-                else if(recon==2)
+                else if (Mode == 0)//대기 and 돌아다니기 
                 {
-                    reconDeset2();
+                    if (recon == 0)
+                    {
+                        RandomDest();
+                    }
+                    else if (recon == 1)
+                    {
+                        reconDest();
+                    }
+                    else if (recon == 2)
+                    {
+                        reconDeset2();
+                    }
                 }
             }
         }

@@ -13,7 +13,7 @@ public class camerahandler : MonoBehaviour
         //vec = GameObject.Find("StopPlayer").transform.position;
         // Variable.Player1_position = vec;
         //vec = GameObject.Find("rewindPlayer2").transform.position;
-        Debug.Log("bbbbbbbbbbbbbbb");
+
         // Variable.Player2_position = vec;
         // vec1 = Variable.Player1_position;
         // vec1.y = 10;
