@@ -413,6 +413,8 @@ namespace Chronos.Example
                 if (qcount > 0 && anatasha.GetComponent<anatest>().MoveOn == true)
                 {
                     anatasha.GetComponent<anatest>().runflag = true;
+                    anatasha.GetComponent<anatest>().closetflag = false;
+                    
                     Debug.Log("DOWN");
                 }
                 //
@@ -431,6 +433,8 @@ namespace Chronos.Example
                 else if (autocome == false)
                 {
                     anatasha.GetComponent<anatest>().MoveOn = true;
+                   anatasha.GetComponent<anatest>().closetflag = false;
+                
                     if (flag == false)
                     {
                         anatasha.GetComponent<anatest>().whoAreYou = 1;

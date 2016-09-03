@@ -77,11 +77,11 @@ namespace Chronos.Example
             if(closetflag==true)
             {
                 nav.destination = closetvec;
-                Debug.Log("haha");
+
             }
             else if(MoveOn)
             {
-               
+                transform.localScale = new Vector3(1.8f, 1.8f, 1.8f);
                 if(whoAreYou==1)
                 {
                     
