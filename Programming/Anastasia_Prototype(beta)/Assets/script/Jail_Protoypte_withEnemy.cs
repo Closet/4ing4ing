@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Chronos.Example;
 
 public class Jail_Protoypte_withEnemy : MonoBehaviour {
 
@@ -31,15 +32,16 @@ public class Jail_Protoypte_withEnemy : MonoBehaviour {
 			doorani.SetTrigger("door_Trigger");
 			//   UnityEditor.NavMeshBuilder.BuildNavMesh();
 		}
-		/*
+
 		if (Get.GetComponent<Collider> ().tag == "Enemy") {
 			{
-				if (Get.GetComponent<TestEnemy> ().Mode == 4)
-					Debug.Log ("enemy충돌함");
-				doorani.SetTrigger ("door_Trigger");
+				if (Get.GetComponent<TestEnemy> ().Mode == 1) {
+					Debug.Log ("enemy chase");
+					doorani.SetTrigger ("door_Trigger");
+				}
 			}
 		}
-		*/
+
 
 
 	}
