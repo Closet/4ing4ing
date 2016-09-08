@@ -4,18 +4,15 @@ namespace Chronos.Example
 {
     public class enemypath : MonoBehaviour
     {
-        public GameObject target;
+        private GameObject target;
         // Use this for initialization
         void Start()
         {
-
+            target = GameObject.FindGameObjectWithTag("targethandler");
         }
 
         // Update is called once per frame
-        void Update()
-        {
-
-        }
+        
         void OnTriggerStay(Collider col)
         {
             if (transform.parent.gameObject.GetComponent<TestEnemy>().Mode == 0)

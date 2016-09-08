@@ -5,8 +5,8 @@ public class camerahandler : MonoBehaviour
 {
     public static Vector3 vec1;
     public Vector3 vec;
-    public GameObject Player1;
-    public GameObject Player2;
+    private GameObject Player1;
+    private GameObject Player2;
     // Use this for initialization
     void Start()
     {
@@ -18,6 +18,8 @@ public class camerahandler : MonoBehaviour
         // vec1 = Variable.Player1_position;
         // vec1.y = 10;
         // transform.position= vec1;
+        Player1 = GameObject.FindGameObjectWithTag("Player");
+        Player2 = GameObject.FindGameObjectWithTag("Player2");
     }
 
     // Update is called once per frame

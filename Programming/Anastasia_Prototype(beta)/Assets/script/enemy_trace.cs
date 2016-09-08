@@ -6,21 +6,24 @@ namespace Chronos.Example
     {
         RaycastHit Hit;//Player1
         
-        public GameObject Player1;
-        public GameObject Player2;
-        public GameObject anata;
+        private GameObject Player1;
+        private GameObject Player2;
+        private GameObject anata;
         Vector3 vec;
         NavMeshHit hit;
         NavMeshHit hit2;
         private NavMeshAgent agent;
-        public GameObject target;
+        private GameObject target;
         int layerMask;
         // Use this for initialization
         void Start()
         {
             agent = transform.parent.gameObject.GetComponent<NavMeshAgent>();
             layerMask = (-1) - ((1 << LayerMask.NameToLayer("Useray")));
-            
+            Player1 = GameObject.FindGameObjectWithTag("Player");
+            Player2 = GameObject.FindGameObjectWithTag("Player2");
+            anata = GameObject.FindGameObjectWithTag("anata");
+            target = GameObject.FindGameObjectWithTag("targethandler");
         }
 
         // Update is called once per frame
@@ -44,9 +47,11 @@ namespace Chronos.Example
                     {
                         if(Physics.Raycast(transform.position,col.transform.position-transform.position,out Hit, Mathf.Infinity, 1<<8))
                         {
-                            Vector3 v = (col.transform.position - transform.position)-transform.forward ;
-                            float rad =Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
-                            if (rad < 90 && rad > -90)
+                            Vector3 relative = transform.InverseTransformPoint(col.transform.position);
+                            float angle = Mathf.Atan2(relative.y, relative.x) * Mathf.Rad2Deg;
+                           
+                            Debug.Log(angle);
+                            if (angle>0)
                             {
                                // Debug.Log(rad);
                                 if (Hit.collider.tag == "Player")

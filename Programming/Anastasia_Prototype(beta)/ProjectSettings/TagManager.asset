@@ -15,6 +15,7 @@ TagManager:
   - Key
   - Drag and Drop Root
   - closet
+  - targethandler
   layers:
   - Default
   - TransparentFX
