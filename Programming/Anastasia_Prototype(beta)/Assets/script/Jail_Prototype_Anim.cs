@@ -19,13 +19,13 @@ public class Jail_Prototype_Anim : MonoBehaviour {
 
     void OnTriggerStay(Collider Get)
     {
-        if ((Get.GetComponent<Collider>().tag == "Player" && Variable.char_flag == false) && Input.GetKeyDown("g"))
+		if ((Get.GetComponent<Collider>().tag == "Player" && Variable.char_flag == false) && (Input.GetKeyDown("a")||Input.GetKeyDown("space")))
         {
             Debug.Log("충돌함");
             doorani.SetTrigger("door_Trigger");
          //   UnityEditor.NavMeshBuilder.BuildNavMesh();
         }
-        if ((Get.GetComponent<Collider>().tag == "Player2" && Variable.char_flag == true) && Input.GetKeyDown("g"))
+		if ((Get.GetComponent<Collider>().tag == "Player2" && Variable.char_flag == true) && (Input.GetKeyDown("a")||Input.GetKeyDown("space")))
         {
             Debug.Log("충돌함");
             doorani.SetTrigger("door_Trigger");

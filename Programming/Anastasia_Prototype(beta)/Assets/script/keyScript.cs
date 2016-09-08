@@ -15,7 +15,7 @@ public class keyScript : MonoBehaviour {
     // Update is called once per frame
     void OnTriggerStay(Collider Get)
     {
-        if ((Get.GetComponent<Collider>().tag == "Player" || Get.GetComponent<Collider>().tag == "Player2") && Input.GetKeyDown("g"))
+		if ((Get.GetComponent<Collider>().tag == "Player" || Get.GetComponent<Collider>().tag == "Player2") && (Input.GetKeyDown("a")||Input.GetKeyDown("space")))
         {
             getKey = true;
             MeshRenderer m = key.GetComponent<MeshRenderer>();
