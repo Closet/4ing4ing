@@ -9,15 +9,15 @@ namespace Chronos.Example
         public Image skill1;
         public Image skill2;
         public Image skill3;
-        public GameObject Player1;
-        public GameObject Player2;
+        private GameObject Player1;
+        private GameObject Player2;
         public GameObject timeline;
         public GameObject rewindArea;
         public GameObject stopArea;
         public GameObject on;
         public GameObject off;
         public int speed = 6;
-        public GameObject anatasha;
+        private GameObject anatasha;
         private GlobalClock[] globalclocks;
         private Vector3 dest;
         private GlobalClock root;
@@ -49,6 +49,9 @@ namespace Chronos.Example
         public bool hideflag = false;
         void Start()
         {
+            Player1 = this.gameObject;
+            Player2 = GameObject.FindGameObjectWithTag("Player2");
+            anatasha = GameObject.FindGameObjectWithTag("anata");
             autocome = false;
             qPress = 0;
             item_flag = false;

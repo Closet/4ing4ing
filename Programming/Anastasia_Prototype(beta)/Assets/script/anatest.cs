@@ -5,8 +5,8 @@ namespace Chronos.Example
     public class anatest : MonoBehaviour
     {
         public int whoAreYou;
-        public GameObject Player1;
-        public GameObject Player2;
+        private GameObject Player1;
+        private GameObject Player2;
         public CharacterController CC;
         public Animation Any;
         public int rewindCount = -1;
@@ -39,6 +39,8 @@ namespace Chronos.Example
         // Use this for initialization
         void Start()
         {
+            Player1 = GameObject.FindGameObjectWithTag("Player");
+            Player2 = GameObject.FindGameObjectWithTag("Player2");
             nav = GetComponent<NavMeshAgent>();
             donotcome = false;
             globalclocks = timekeeper.GetComponents<GlobalClock>();
@@ -61,7 +63,7 @@ namespace Chronos.Example
             if (rewindCount >= 0)
             {
                 ++rewindCount;
-                if (rewindCount == 120)
+                if (rewindCount > 120)
                 {
                     timeline.globalClockKey = "Character";
                     rewindCount = -1;

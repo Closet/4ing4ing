@@ -16,10 +16,10 @@ namespace Chronos.Example
         private Vector3 dest;
         private Timeline timeline;
         public int flag = 0;
-        public GameObject Player1;
-        public GameObject Player2;
-        public GameObject Ana;
-        public GameObject target;
+        private GameObject Player1;
+        private GameObject Player2;
+        private GameObject Ana;
+        private GameObject target;
         public Vector3 vec;
         public Vector3 realpo;
         public int count;
@@ -36,6 +36,10 @@ namespace Chronos.Example
         private int SWcount = 0;
         void Start()
         {
+            Player1 = GameObject.FindGameObjectWithTag("Player");
+            Player2 = GameObject.FindGameObjectWithTag("Player2");
+            Ana = GameObject.FindGameObjectWithTag("anata");
+            target = GameObject.FindGameObjectWithTag("targethandler");
             if (recon == 1|| recon == 2)
             {
                 reconnum = reconpath.Length;
@@ -79,7 +83,7 @@ namespace Chronos.Example
             if (SW > 0)
             {
                 SWcount++;
-                if(SWcount ==300)
+                if(SWcount >300)
                 {
                     SW = 0;
                     SWcount = 0;
@@ -89,6 +93,7 @@ namespace Chronos.Example
             {
                 if (Mode == 1)//추격
                 {
+                   // Debug.Log(transform.forward);
                     if (flag > 0)
                     {
                         count++;
@@ -114,7 +119,7 @@ namespace Chronos.Example
                         nav.destination = Ana.transform.position;
 
                     }
-                    if (count == 60 * 3)
+                    if (count > 60 * 3)
                     {
                         flag = 0;
                         count = 0;
@@ -129,7 +134,7 @@ namespace Chronos.Example
                     {
                         findpath();
                     }
-                    if (count == 60 * 10)
+                    if (count > 60 * 10)
                     {
                         Mode = 3;
                     }
@@ -143,7 +148,7 @@ namespace Chronos.Example
                 {
                     count++;
                     nav.destination = this.transform.position;
-                    if (count == 60)
+                    if (count > 60)
                     {
                         Mode = 1;
                         count = 2;

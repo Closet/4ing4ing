@@ -5,17 +5,7 @@ namespace Chronos.Example
     public class enemy_attackcol : MonoBehaviour
     {
 
-        // Use this for initialization
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        
         void OnTriggerStay(Collider col)
         {
             if (transform.parent.gameObject.GetComponent<TestEnemy>().Mode == 1&& transform.parent.gameObject.GetComponent<TestEnemy>().SW==0)
